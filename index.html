@@ -160,6 +160,7 @@
 
         window.addEventListener('load', () => {
             incrementVisitor();
+            fetchNews();
 
             const ads = document.querySelectorAll('.adsbygoogle');
             ads.forEach(ad => {
@@ -167,30 +168,37 @@
             });
         });
 
-        const news = [
-            { title: "Major Earthquake Hits Asia", link: "https://www.bbc.com/news/world-asia-66791690" },
-            { title: "Hurricane Causes Widespread Damage", link: "https://www.reuters.com/world/americas/hurricane-damage-update-2023-09-12/" },
-            { title: "Wildfires Spread Due to Climate Change", link: "https://edition.cnn.com/2023/09/10/world/wildfires-climate-change/index.html" },
-            { title: "Floods Displace Thousands in Africa", link: "https://www.aljazeera.com/news/2023/9/11/floods-displace-thousands-in-africa" },
-            { title: "Devastating Earthquake in Morocco", link: "https://www.nytimes.com/2023/09/09/world/earthquake-morocco.html" }
-        ];
+        async function fetchNews() {
+            try {
+                const bbcFeed = await fetch('https://api.rss2json.com/v1/api.json?rss_url=http://feeds.bbci.co.uk/news/world/rss.xml');
+                const cnnFeed = await fetch('https://api.rss2json.com/v1/api.json?rss_url=http://rss.cnn.com/rss/edition.rss');
 
-        function updateNews() {
-            const newsList = document.getElementById('news-list');
-            newsList.innerHTML = '';
-            news.forEach(item => {
-                const li = document.createElement('li');
-                const a = document.createElement('a');
-                a.href = item.link;
-                a.target = '_blank';
-                a.textContent = item.title;
-                li.appendChild(a);
-                newsList.appendChild(li);
-            });
+                const bbcData = await bbcFeed.json();
+                const cnnData = await cnnFeed.json();
+
+                const allNews = [...bbcData.items, ...cnnData.items];
+
+                const filteredNews = allNews.filter(item => {
+                    const title = item.title.toLowerCase();
+                    return title.includes('environment') || title.includes('war') || title.includes('refugee') || title.includes('hunger');
+                });
+
+                const newsList = document.getElementById('news-list');
+                newsList.innerHTML = '';
+
+                filteredNews.slice(0, 5).forEach(item => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = item.link;
+                    a.target = '_blank';
+                    a.textContent = item.title;
+                    li.appendChild(a);
+                    newsList.appendChild(li);
+                });
+            } catch (error) {
+                console.error('Failed to fetch news:', error);
+            }
         }
-
-        setInterval(updateNews, 30000);
-        updateNews();
     </script>
 </body>
 </html>
