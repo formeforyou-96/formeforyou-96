@@ -99,8 +99,8 @@
         <h1>Support My Cause</h1>
         <p>Your small support can change the world.</p>
 
-        <div class="total-amount">
-            Total Donations: Based on Ad Views
+        <div class="total-amount" id="donation-amount">
+            Total Ad Views: 0
         </div>
 
         <div class="ad-container">
@@ -134,13 +134,50 @@
 
     <div class="news-feed">
         <h2>Global Disaster News</h2>
-        <ul>
-            <li><a href="https://www.bbc.com/news/world-asia-66791690" target="_blank">Major Earthquake Hits Asia</a></li>
-            <li><a href="https://www.reuters.com/world/americas/hurricane-damage-update-2023-09-12/" target="_blank">Hurricane Causes Widespread Damage</a></li>
-            <li><a href="https://edition.cnn.com/2023/09/10/world/wildfires-climate-change/index.html" target="_blank">Wildfires Spread Due to Climate Change</a></li>
-            <li><a href="https://www.aljazeera.com/news/2023/9/11/floods-displace-thousands-in-africa" target="_blank">Floods Displace Thousands in Africa</a></li>
-            <li><a href="https://www.nytimes.com/2023/09/09/world/earthquake-morocco.html" target="_blank">Devastating Earthquake in Morocco</a></li>
+        <ul id="news-list">
+            <!-- News will be populated here -->
         </ul>
     </div>
+
+    <script>
+        let adViewCount = 0;
+
+        function incrementAdView() {
+            adViewCount++;
+            document.getElementById('donation-amount').innerText = `Total Ad Views: ${adViewCount}`;
+        }
+
+        window.addEventListener('load', () => {
+            const ads = document.querySelectorAll('.adsbygoogle');
+            ads.forEach(ad => {
+                ad.addEventListener('load', incrementAdView);
+            });
+        });
+
+        const news = [
+            { title: "Major Earthquake Hits Asia", link: "https://www.bbc.com/news/world-asia-66791690" },
+            { title: "Hurricane Causes Widespread Damage", link: "https://www.reuters.com/world/americas/hurricane-damage-update-2023-09-12/" },
+            { title: "Wildfires Spread Due to Climate Change", link: "https://edition.cnn.com/2023/09/10/world/wildfires-climate-change/index.html" },
+            { title: "Floods Displace Thousands in Africa", link: "https://www.aljazeera.com/news/2023/9/11/floods-displace-thousands-in-africa" },
+            { title: "Devastating Earthquake in Morocco", link: "https://www.nytimes.com/2023/09/09/world/earthquake-morocco.html" }
+        ];
+
+        function updateNews() {
+            const newsList = document.getElementById('news-list');
+            newsList.innerHTML = '';
+            news.forEach(item => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = item.link;
+                a.target = '_blank';
+                a.textContent = item.title;
+                li.appendChild(a);
+                newsList.appendChild(li);
+            });
+        }
+
+        setInterval(updateNews, 30000);
+        updateNews();
+    </script>
 </body>
 </html>
