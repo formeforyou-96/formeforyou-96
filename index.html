@@ -38,11 +38,11 @@
             color: #333;
             margin-bottom: 20px;
         }
-        .total-amount {
+        .total-amount, .visitor-count {
             font-size: 2rem;
             font-weight: bold;
             color: #2e7d32;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         .ad-container {
             margin: 20px 0;
@@ -99,6 +99,10 @@
         <h1>Support My Cause</h1>
         <p>Your small support can change the world.</p>
 
+        <div class="visitor-count" id="visitor-count">
+            Total Visitors: 0
+        </div>
+
         <div class="total-amount" id="donation-amount">
             Total Ad Views: 0
         </div>
@@ -127,7 +131,7 @@
             </script>
         </div>
 
-        <a class="note-button" href="#" onclick="alert('Please watch ads to help support this cause. Thank you!')">
+        <a class="note-button" href="https://formeforyou-96.github.io" target="_blank">
             Watch Ads to Support
         </a>
     </div>
@@ -141,13 +145,22 @@
 
     <script>
         let adViewCount = 0;
+        let visitorCount = localStorage.getItem('visitorCount') || 0;
 
         function incrementAdView() {
             adViewCount++;
             document.getElementById('donation-amount').innerText = `Total Ad Views: ${adViewCount}`;
         }
 
+        function incrementVisitor() {
+            visitorCount++;
+            localStorage.setItem('visitorCount', visitorCount);
+            document.getElementById('visitor-count').innerText = `Total Visitors: ${visitorCount}`;
+        }
+
         window.addEventListener('load', () => {
+            incrementVisitor();
+
             const ads = document.querySelectorAll('.adsbygoogle');
             ads.forEach(ad => {
                 ad.addEventListener('load', incrementAdView);
