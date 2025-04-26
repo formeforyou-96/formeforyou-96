@@ -137,7 +137,7 @@
     </div>
 
     <div class="news-feed">
-        <h2>Global Disaster News</h2>
+        <h2>Global Issue News</h2>
         <ul id="news-list">
             <!-- News will be populated here -->
         </ul>
@@ -170,17 +170,19 @@
 
         async function fetchNews() {
             try {
-                const bbcFeed = await fetch('https://api.rss2json.com/v1/api.json?rss_url=http://feeds.bbci.co.uk/news/world/rss.xml');
-                const cnnFeed = await fetch('https://api.rss2json.com/v1/api.json?rss_url=http://rss.cnn.com/rss/edition.rss');
+                const unFeed = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://news.un.org/feed/subscribe/en/news/all/rss.xml');
+                const reliefFeed = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://reliefweb.int/disasters/rss.xml');
 
-                const bbcData = await bbcFeed.json();
-                const cnnData = await cnnFeed.json();
+                const unData = await unFeed.json();
+                const reliefData = await reliefFeed.json();
 
-                const allNews = [...bbcData.items, ...cnnData.items];
+                const allNews = [...unData.items, ...reliefData.items];
+
+                const keywords = ['environment', 'war', 'refugee', 'hunger', 'disaster', 'famine', 'climate', 'conflict', 'poverty', 'aid', 'emergency'];
 
                 const filteredNews = allNews.filter(item => {
                     const title = item.title.toLowerCase();
-                    return title.includes('environment') || title.includes('war') || title.includes('refugee') || title.includes('hunger');
+                    return keywords.some(keyword => title.includes(keyword));
                 });
 
                 const newsList = document.getElementById('news-list');
@@ -202,3 +204,4 @@
     </script>
 </body>
 </html>
+
