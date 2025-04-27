@@ -5,9 +5,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Me, For You</title>
 <style>
-/* 스타일은 기존 그대로 유지 */
-(기존 스타일 생략)
+body {
+    margin: 0;
+    font-family: 'Pretendard', sans-serif;
+    background: url('pexels-souvenirpixels-417074.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    text-shadow: 1px 1px 2px white;
+}
+header, nav, #main, footer {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 1em;
+    border-radius: 10px;
+    margin: 1em;
+}
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+nav a {
+    margin: 0.5em;
+    text-decoration: none;
+    font-weight: bold;
+    color: #4CAF50;
+}
+nav a:hover {
+    color: #333;
+}
+#stock-section, #guestbook, #contact {
+    margin-top: 2em;
+    text-align: center;
+}
+#guest-message {
+    width: 80%;
+    height: 100px;
+    max-width: 500px;
+}
+#fixed-ad {
+    position: fixed;
+    top: 100px;
+    right: 10px;
+    width: 120px;
+    height: 600px;
+    background-color: rgba(238, 238, 238, 0.8);
+    text-align: center;
+    padding: 1em;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+    z-index: 999;
+}
+@media (max-width: 768px) {
+    header, nav, #main, footer {
+        margin: 0.5em;
+        padding: 1em;
+    }
+    nav a {
+        font-size: 0.9em;
+    }
+    #fixed-ad {
+        display: none;
+    }
+    #guest-message {
+        width: 95%;
+    }
+}
 </style>
+<link rel="preload" href="pexels-souvenirpixels-417074.jpg" as="image">
 </head>
 <body>
 
@@ -27,6 +90,7 @@
 <section id="home">
 <h2>Our Promise for the Environment (환경을 위한 우리의 약속)</h2>
 <p>We are taking action to influence large corporations and drive eco-friendly policies. (대기업에 영향력을 행사하여 친환경 정책을 이끌어내기 위해 움직이고 있습니다.)</p>
+<p style="font-size:0.9em;">If you want to share our vision or support directly, please contact us by email. (뜻을 같이 하고 싶거나 직접 후원하고 싶으신 분은 이메일로 문의 주세요.)</p>
 <div id="stock-section">
 <div id="stock-amount">Stock Holdings (보유 주식): 0주</div>
 <button id="edit-btn">수정</button>
@@ -84,8 +148,7 @@
 </div>
 
 <script>
-// 스크립트 영역 (기존 그대로 유지)
-(기존 스크립트 생략)
+// 기존 스크립트 유지 (주식 수정 및 방명록 작성 기능)
 </script>
 
 </body>
