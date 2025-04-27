@@ -16,32 +16,39 @@ body {
     color: #333;
     text-shadow: 1px 1px 2px white;
 }
-header, footer {
+header {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 1em;
+    border-radius: 10px;
+    margin: 1em auto;
+    max-width: 800px;
+    text-align: center;
+}
+footer {
     background: rgba(255, 255, 255, 0.6);
     padding: 1em;
     border-radius: 10px;
     margin: 1em;
+    text-align: center;
 }
 section {
     background: rgba(255, 255, 255, 0.6);
-    margin: 1em;
+    margin: 1em auto;
     padding: 1.5em;
     border-radius: 10px;
-}
-#home-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 1em;
-    flex-wrap: wrap;
-}
-.ad-box {
-    width: 20%;
-    min-width: 150px;
+    max-width: 800px;
 }
 #home-content {
-    width: 55%;
-    min-width: 300px;
+    text-align: center;
+}
+#ad-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+}
+.ad-box {
+    width: 45%;
 }
 #stock-section, #guestbook, #contact {
     margin-top: 2em;
@@ -53,15 +60,11 @@ section {
     max-width: 500px;
 }
 @media (max-width: 768px) {
-    header, section, footer {
-        margin: 0.5em;
-        padding: 1em;
-    }
-    #home-wrapper {
+    #ad-wrapper {
         flex-direction: column;
         align-items: center;
     }
-    .ad-box, #home-content {
+    .ad-box {
         width: 90%;
     }
     #guest-message {
@@ -79,12 +82,6 @@ section {
 
 <div id="main">
 <section id="home">
-<div id="home-wrapper">
-<div class="ad-box">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1588243824158524" data-ad-slot="2573241728" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
 <div id="home-content">
 <h2>Our Promise for the Environment (환경을 위한 우리의 약속)</h2>
 <p>We are taking action to influence large corporations and drive eco-friendly policies. (대기업에 영향력을 행사하여 친환경 정책을 이끌어내기 위해 움직이고 있습니다.)</p>
@@ -101,6 +98,12 @@ section {
 </div>
 </div>
 </div>
+</div>
+<div id="ad-wrapper">
+<div class="ad-box">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1588243824158524" data-ad-slot="2573241728" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 <div class="ad-box">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
