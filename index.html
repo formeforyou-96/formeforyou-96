@@ -158,3 +158,91 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- head 부분은 그대로 유지 -->
+...
+</head>
+<body>
+
+<!-- header, nav, main 등 그대로 -->
+
+<script>
+const PASSWORD = "147852369";
+const stockAmount = document.getElementById('stock-amount');
+const editBtn = document.getElementById('edit-btn');
+const inputArea = document.getElementById('input-area');
+const saveBtn = document.getElementById('save-btn');
+const cancelBtn = document.getElementById('cancel-btn');
+
+editBtn.addEventListener('click', () => {
+  inputArea.style.display = 'flex';
+  editBtn.style.display = 'none';
+});
+
+cancelBtn.addEventListener('click', () => {
+  inputArea.style.display = 'none';
+  editBtn.style.display = 'block';
+});
+
+saveBtn.addEventListener('click', () => {
+  const password = document.getElementById('password').value;
+  const newStock = document.getElementById('new-stock').value;
+  if (password === PASSWORD) {
+    stockAmount.textContent = `Stock Holdings (보유 주식): ${newStock}`;
+    inputArea.style.display = 'none';
+    editBtn.style.display = 'block';
+  } else {
+    alert("비밀번호가 틀렸습니다!");
+  }
+});
+
+function addMessage() {
+  const messageBox = document.getElementById('guest-message');
+  const messages = document.getElementById('messages');
+  if (messageBox.value.trim() !== "") {
+    const newMessage = document.createElement('div');
+    newMessage.style.position = 'relative';
+    newMessage.style.marginBottom = '10px';
+    newMessage.style.padding = '10px';
+    newMessage.style.backgroundColor = '#f0f0f0';
+    newMessage.style.borderRadius = '5px';
+
+    const messageText = document.createElement('span');
+    messageText.textContent = messageBox.value;
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = "삭제";
+    deleteBtn.style.position = 'absolute';
+    deleteBtn.style.top = '5px';
+    deleteBtn.style.right = '5px';
+    deleteBtn.style.padding = '5px';
+    deleteBtn.style.fontSize = '0.8rem';
+    deleteBtn.style.backgroundColor = '#ff4d4d';
+    deleteBtn.style.color = 'white';
+    deleteBtn.style.border = 'none';
+    deleteBtn.style.borderRadius = '3px';
+    deleteBtn.style.cursor = 'pointer';
+
+    deleteBtn.addEventListener('click', () => {
+      const inputPassword = prompt("비밀번호를 입력하세요:");
+      if (inputPassword === PASSWORD) {
+        messages.removeChild(newMessage);
+      } else {
+        alert("비밀번호가 틀렸습니다!");
+      }
+    });
+
+    newMessage.appendChild(messageText);
+    newMessage.appendChild(deleteBtn);
+    messages.appendChild(newMessage);
+    messageBox.value = "";
+  } else {
+    alert("메시지를 입력해주세요.");
+  }
+}
+</script>
+
+</body>
+</html>
