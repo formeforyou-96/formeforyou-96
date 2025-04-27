@@ -16,25 +16,11 @@ body {
     color: #333;
     text-shadow: 1px 1px 2px white;
 }
-header, nav, footer {
+header, footer {
     background: rgba(255, 255, 255, 0.6);
     padding: 1em;
     border-radius: 10px;
     margin: 1em;
-}
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-nav a {
-    margin: 0.5em;
-    text-decoration: none;
-    font-weight: bold;
-    color: #4CAF50;
-}
-nav a:hover {
-    color: #333;
 }
 section {
     background: rgba(255, 255, 255, 0.6);
@@ -52,12 +38,9 @@ section {
     max-width: 500px;
 }
 @media (max-width: 768px) {
-    header, nav, section, footer {
+    header, section, footer {
         margin: 0.5em;
         padding: 1em;
-    }
-    nav a {
-        font-size: 0.9em;
     }
     #guest-message {
         width: 95%;
@@ -72,18 +55,23 @@ section {
 <p>Changing the World through Capital (자본으로 세상을 바꾸다)</p>
 </header>
 
-<nav>
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#games">Advertisement</a>
-<a href="#contact">Contact</a>
-</nav>
-
 <div id="main">
 <section id="home">
 <h2>Our Promise for the Environment (환경을 위한 우리의 약속)</h2>
 <p>We are taking action to influence large corporations and drive eco-friendly policies. (대기업에 영향력을 행사하여 친환경 정책을 이끌어내기 위해 움직이고 있습니다.)</p>
 <p style="font-size:0.9em;">If you want to share our vision or support directly, please contact us by email. (뜻을 같이 하고 싶거나 직접 후원하고 싶으신 분은 이메일로 문의 주세요.)</p>
+
+<div style="text-align:center; margin: 2em 0;">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1588243824158524"
+     data-ad-slot="2573241728"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
 <div id="stock-section">
 <div id="stock-amount">Stock Holdings (보유 주식): 0주</div>
 <button id="edit-btn">수정</button>
@@ -101,20 +89,6 @@ section {
 <section id="about">
 <h2>About Us (회사 소개)</h2>
 <p>"For Me, For You" was established to tackle the pressing issue of waste, especially plastic pollution. (For Me, For You는 쓰레기 문제, 특히 플라스틱 오염에 대응하기 위해 설립되었습니다.)<br>We aim to leverage shareholder rights to lead companies towards eco-friendly transformations. (주주권을 행사하여 기업의 친환경 전환을 이끌어냅니다.)</p>
-</section>
-
-<section id="games">
-<h2>Advertisement (광고)</h2>
-<div style="text-align:center; margin: 2em 0;">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1588243824158524"
-     data-ad-slot="2573241728"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
 </section>
 
 <section id="guestbook">
