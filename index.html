@@ -28,6 +28,21 @@ section {
     padding: 1.5em;
     border-radius: 10px;
 }
+#home-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+.ad-box {
+    width: 20%;
+    min-width: 150px;
+}
+#home-content {
+    width: 55%;
+    min-width: 300px;
+}
 #stock-section, #guestbook, #contact {
     margin-top: 2em;
     text-align: center;
@@ -41,6 +56,13 @@ section {
     header, section, footer {
         margin: 0.5em;
         padding: 1em;
+    }
+    #home-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .ad-box, #home-content {
+        width: 90%;
     }
     #guest-message {
         width: 95%;
@@ -57,21 +79,16 @@ section {
 
 <div id="main">
 <section id="home">
+<div id="home-wrapper">
+<div class="ad-box">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1588243824158524" data-ad-slot="2573241728" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<div id="home-content">
 <h2>Our Promise for the Environment (환경을 위한 우리의 약속)</h2>
 <p>We are taking action to influence large corporations and drive eco-friendly policies. (대기업에 영향력을 행사하여 친환경 정책을 이끌어내기 위해 움직이고 있습니다.)</p>
 <p style="font-size:0.9em;">If you want to share our vision or support directly, please contact us by email. (뜻을 같이 하고 싶거나 직접 후원하고 싶으신 분은 이메일로 문의 주세요.)</p>
-
-<div style="text-align:center; margin: 2em 0;">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1588243824158524"
-     data-ad-slot="2573241728"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
 <div id="stock-section">
 <div id="stock-amount">Stock Holdings (보유 주식): 0주</div>
 <button id="edit-btn">수정</button>
@@ -82,6 +99,13 @@ section {
 <button id="save-btn">저장</button>
 <button id="cancel-btn">취소</button>
 </div>
+</div>
+</div>
+</div>
+<div class="ad-box">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1588243824158524" data-ad-slot="2573241728" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 </div>
 </section>
