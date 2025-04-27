@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="For Me, For You - Changing the World through Capital">
 <title>For Me, For You</title>
+<link rel="preload" href="assets/pexels-souvenirpixels-417074.jpg" as="image">
 <style>
 body {
     margin: 0;
@@ -13,8 +16,8 @@ body {
     color: #333;
     text-shadow: 1px 1px 2px white;
 }
-header, nav, #main, footer {
-    background: rgba(255, 255, 255, 0.85);
+header, nav, footer {
+    background: rgba(255, 255, 255, 0.6);
     padding: 1em;
     border-radius: 10px;
     margin: 1em;
@@ -33,6 +36,12 @@ nav a {
 nav a:hover {
     color: #333;
 }
+section {
+    background: rgba(255, 255, 255, 0.6);
+    margin: 1em;
+    padding: 1.5em;
+    border-radius: 10px;
+}
 #stock-section, #guestbook, #contact {
     margin-top: 2em;
     text-align: center;
@@ -42,35 +51,19 @@ nav a:hover {
     height: 100px;
     max-width: 500px;
 }
-#fixed-ad {
-    position: fixed;
-    top: 100px;
-    right: 10px;
-    width: 120px;
-    height: 600px;
-    background-color: rgba(238, 238, 238, 0.8);
-    text-align: center;
-    padding: 1em;
-    box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
-    z-index: 999;
-}
 @media (max-width: 768px) {
-    header, nav, #main, footer {
+    header, nav, section, footer {
         margin: 0.5em;
         padding: 1em;
     }
     nav a {
         font-size: 0.9em;
     }
-    #fixed-ad {
-        display: none;
-    }
     #guest-message {
         width: 95%;
     }
 }
 </style>
-<link rel="preload" href="pexels-souvenirpixels-417074.jpg" as="image">
 </head>
 <body>
 
@@ -141,14 +134,80 @@ nav a:hover {
 <p>Copyright © 2025 For Me, For You</p>
 </footer>
 
-<div id="fixed-ad">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1588243824158524" crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1588243824158524" data-ad-slot="2573241728" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
 <script>
-// 기존 스크립트 유지 (주식 수정 및 방명록 작성 기능)
+const PASSWORD = "147852369";
+const stockAmount = document.getElementById('stock-amount');
+const editBtn = document.getElementById('edit-btn');
+const inputArea = document.getElementById('input-area');
+const saveBtn = document.getElementById('save-btn');
+const cancelBtn = document.getElementById('cancel-btn');
+
+editBtn.addEventListener('click', () => {
+    inputArea.style.display = 'flex';
+    editBtn.style.display = 'none';
+});
+
+cancelBtn.addEventListener('click', () => {
+    inputArea.style.display = 'none';
+    editBtn.style.display = 'block';
+});
+
+saveBtn.addEventListener('click', () => {
+    const password = document.getElementById('password').value;
+    const newStock = document.getElementById('new-stock').value;
+    if (password === PASSWORD) {
+        stockAmount.textContent = `Stock Holdings (보유 주식): ${newStock}`;
+        inputArea.style.display = 'none';
+        editBtn.style.display = 'block';
+    } else {
+        alert("비밀번호가 틀렸습니다!");
+    }
+});
+
+function addMessage() {
+    const messageBox = document.getElementById('guest-message');
+    const messages = document.getElementById('messages');
+    if (messageBox.value.trim() !== "") {
+        const newMessage = document.createElement('div');
+        newMessage.style.position = 'relative';
+        newMessage.style.marginBottom = '10px';
+        newMessage.style.padding = '10px';
+        newMessage.style.backgroundColor = '#f0f0f0';
+        newMessage.style.borderRadius = '5px';
+
+        const messageText = document.createElement('span');
+        messageText.textContent = messageBox.value;
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = "삭제";
+        deleteBtn.style.position = 'absolute';
+        deleteBtn.style.top = '5px';
+        deleteBtn.style.right = '5px';
+        deleteBtn.style.padding = '5px';
+        deleteBtn.style.fontSize = '0.8rem';
+        deleteBtn.style.backgroundColor = '#ff4d4d';
+        deleteBtn.style.color = 'white';
+        deleteBtn.style.border = 'none';
+        deleteBtn.style.borderRadius = '3px';
+        deleteBtn.style.cursor = 'pointer';
+
+        deleteBtn.addEventListener('click', () => {
+            const inputPassword = prompt("비밀번호를 입력하세요:");
+            if (inputPassword === PASSWORD) {
+                messages.removeChild(newMessage);
+            } else {
+                alert("비밀번호가 틀렸습니다!");
+            }
+        });
+
+        newMessage.appendChild(messageText);
+        newMessage.appendChild(deleteBtn);
+        messages.appendChild(newMessage);
+        messageBox.value = "";
+    } else {
+        alert("메시지를 입력해주세요.");
+    }
+}
 </script>
 
 </body>
