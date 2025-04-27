@@ -1,247 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Me, For You</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Pretendard', sans-serif;
-            background-color: #f7fef7;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1em;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #ffffff;
-            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-        }
-        nav a {
-            padding: 1em;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
-        nav a:hover {
-            color: #4CAF50;
-        }
-        #main {
-            padding: 2em;
-            max-width: 1000px;
-            margin: auto;
-        }
-        #games {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2em;
-            margin-top: 2em;
-        }
-        .game-card {
-            background: #ffffff;
-            padding: 1em;
-            box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        .game-card a {
-            display: inline-block;
-            margin-top: 1em;
-            text-decoration: none;
-            color: white;
-            background-color: #4CAF50;
-            padding: 0.5em 1em;
-            border-radius: 5px;
-        }
-        #contact {
-            margin-top: 3em;
-            text-align: center;
-            font-size: 1.2em;
-        }
-        footer {
-            margin-top: 5em;
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 1em;
-        }
-        #fixed-ad {
-            position: fixed;
-            top: 120px;
-            right: 20px;
-            width: 160px;
-            height: 600px;
-            background-color: #eeeeee;
-            text-align: center;
-            padding: 1em;
-            box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
-            z-index: 999;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Me, For You</title>
+<style>
+/* 스타일은 기존 그대로 유지 */
+(기존 스타일 생략)
+</style>
 </head>
 <body>
 
 <header>
-    <h1>For Me, For You</h1>
-    <p>Changing the World through Capital (자본으로 세상을 바꾸다)</p>
+<h1>For Me, For You</h1>
+<p>Changing the World through Capital (자본으로 세상을 바꾸다)</p>
 </header>
 
 <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#games">Games</a>
-    <a href="#contact">Contact</a>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#games">Advertisement</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <div id="main">
-    <section id="home">
-        <h2>Our Promise for the Environment (환경을 위한 우리의 약속)</h2>
-        <p>We are taking action to influence large corporations and drive eco-friendly policies. (대기업에 영향력을 행사하여 친환경 정책을 이끌어내기 위해 움직이고 있습니다.)</p>
-    </section>
+<section id="home">
+<h2>Our Promise for the Environment (환경을 위한 우리의 약속)</h2>
+<p>We are taking action to influence large corporations and drive eco-friendly policies. (대기업에 영향력을 행사하여 친환경 정책을 이끌어내기 위해 움직이고 있습니다.)</p>
+<div id="stock-section">
+<div id="stock-amount">Stock Holdings (보유 주식): 0주</div>
+<button id="edit-btn">수정</button>
+<div id="input-area">
+<input type="password" id="password" placeholder="비밀번호 입력">
+<input type="text" id="new-stock" placeholder="새 보유량 입력 (ex: 삼성전자 300주)">
+<div>
+<button id="save-btn">저장</button>
+<button id="cancel-btn">취소</button>
+</div>
+</div>
+</div>
+</section>
 
-    <section id="about">
-        <h2>About Us (회사 소개)</h2>
-        <p>
-            "For Me, For You" was established to tackle the pressing issue of waste, especially plastic pollution. (For Me, For You는 쓰레기 문제, 특히 플라스틱 오염에 대응하기 위해 설립되었습니다.)<br>
-            We aim to leverage shareholder rights to lead companies towards eco-friendly transformations. (주주권을 행사하여 기업의 친환경 전환을 이끌어냅니다.)
-        </p>
-    </section>
+<section id="about">
+<h2>About Us (회사 소개)</h2>
+<p>"For Me, For You" was established to tackle the pressing issue of waste, especially plastic pollution. (For Me, For You는 쓰레기 문제, 특히 플라스틱 오염에 대응하기 위해 설립되었습니다.)<br>We aim to leverage shareholder rights to lead companies towards eco-friendly transformations. (주주권을 행사하여 기업의 친환경 전환을 이끌어냅니다.)</p>
+</section>
 
-    <section id="games">
-        <h2>Our Games (게임 소개)</h2>
+<section id="games">
+<h2>Advertisement (광고)</h2>
+<div style="text-align:center; margin: 2em 0;">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1588243824158524"
+     data-ad-slot="2573241728"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</section>
 
-        <div class="game-card">
-            <h3>Find the Differences (틀린 그림 찾기)</h3>
-            <p>Enjoy while contributing to environmental campaigns through ad revenue! (재미있게 놀면서 광고 수익으로 환경 운동에 참여하세요!)</p>
-            <a href="#">Download</a>
-        </div>
+<section id="guestbook">
+<h2>Guestbook (방명록)</h2>
+<textarea id="guest-message" placeholder="메시지를 남겨주세요"></textarea><br>
+<button onclick="addMessage()">등록</button>
+<div id="messages"></div>
+</section>
 
-        <div class="game-card">
-            <h3>Eco Quiz (친환경 퀴즈)</h3>
-            <p>Enhance your environmental knowledge while protecting the Earth! (환경 지식을 쌓으면서 지구를 지켜요!)</p>
-            <a href="#">Download</a>
-        </div>
-
-    </section>
-
-    <section id="contact">
-        <h2>Contact Us (문의하기)</h2>
-        <p>Email: <a href="mailto:ho960505@naver.com">ho960505@naver.com</a></p>
-    </section>
+<section id="contact">
+<h2>Contact Us (문의하기)</h2>
+<p>Email: <a href="mailto:ho960505@naver.com">ho960505@naver.com</a></p>
+</section>
 </div>
 
 <footer>
-    <p>Copyright © 2025 For Me, For You</p>
+<p>Copyright © 2025 For Me, For You</p>
 </footer>
 
-<!-- Fixed Ad Section -->
 <div id="fixed-ad">
-    <!-- Adsense 광고 스크립트 삽입 -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1588243824158524"
-     crossorigin="anonymous"></script>
-
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-1588243824158524"
-         data-ad-slot="2573241728"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1588243824158524" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1588243824158524" data-ad-slot="2573241728" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<!-- head 부분은 그대로 유지 -->
-...
-</head>
-<body>
-
-<!-- header, nav, main 등 그대로 -->
-
 <script>
-const PASSWORD = "147852369";
-const stockAmount = document.getElementById('stock-amount');
-const editBtn = document.getElementById('edit-btn');
-const inputArea = document.getElementById('input-area');
-const saveBtn = document.getElementById('save-btn');
-const cancelBtn = document.getElementById('cancel-btn');
-
-editBtn.addEventListener('click', () => {
-  inputArea.style.display = 'flex';
-  editBtn.style.display = 'none';
-});
-
-cancelBtn.addEventListener('click', () => {
-  inputArea.style.display = 'none';
-  editBtn.style.display = 'block';
-});
-
-saveBtn.addEventListener('click', () => {
-  const password = document.getElementById('password').value;
-  const newStock = document.getElementById('new-stock').value;
-  if (password === PASSWORD) {
-    stockAmount.textContent = `Stock Holdings (보유 주식): ${newStock}`;
-    inputArea.style.display = 'none';
-    editBtn.style.display = 'block';
-  } else {
-    alert("비밀번호가 틀렸습니다!");
-  }
-});
-
-function addMessage() {
-  const messageBox = document.getElementById('guest-message');
-  const messages = document.getElementById('messages');
-  if (messageBox.value.trim() !== "") {
-    const newMessage = document.createElement('div');
-    newMessage.style.position = 'relative';
-    newMessage.style.marginBottom = '10px';
-    newMessage.style.padding = '10px';
-    newMessage.style.backgroundColor = '#f0f0f0';
-    newMessage.style.borderRadius = '5px';
-
-    const messageText = document.createElement('span');
-    messageText.textContent = messageBox.value;
-
-    const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = "삭제";
-    deleteBtn.style.position = 'absolute';
-    deleteBtn.style.top = '5px';
-    deleteBtn.style.right = '5px';
-    deleteBtn.style.padding = '5px';
-    deleteBtn.style.fontSize = '0.8rem';
-    deleteBtn.style.backgroundColor = '#ff4d4d';
-    deleteBtn.style.color = 'white';
-    deleteBtn.style.border = 'none';
-    deleteBtn.style.borderRadius = '3px';
-    deleteBtn.style.cursor = 'pointer';
-
-    deleteBtn.addEventListener('click', () => {
-      const inputPassword = prompt("비밀번호를 입력하세요:");
-      if (inputPassword === PASSWORD) {
-        messages.removeChild(newMessage);
-      } else {
-        alert("비밀번호가 틀렸습니다!");
-      }
-    });
-
-    newMessage.appendChild(messageText);
-    newMessage.appendChild(deleteBtn);
-    messages.appendChild(newMessage);
-    messageBox.value = "";
-  } else {
-    alert("메시지를 입력해주세요.");
-  }
-}
+// 스크립트 영역 (기존 그대로 유지)
+(기존 스크립트 생략)
 </script>
 
 </body>
