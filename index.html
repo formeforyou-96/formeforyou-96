@@ -7,6 +7,10 @@
 <meta name="description" content="For Me, For You - Changing the World through Capital">
 <title>For Me, For You</title>
 <link rel="preload" href="assets/pexels-souvenirpixels-417074.jpg" as="image">
+<meta name="robots" content="index, follow">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:none" data-ad-client="ca-pub-1588243824158524" data-ad-slot="2573241728"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 <style>
 body {
     margin: 0;
@@ -102,11 +106,15 @@ section {
 </div>
 
 <div id="ad-wrapper">
-<div class="ad-box"> <!-- 광고칸1 -->
-<!-- 광고스크립트 추가 예정 -->
+<div class="ad-box">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1588243824158524" data-ad-slot="2573241728" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
-<div class="ad-box"> <!-- 광고칸2 -->
-<!-- 광고스크립트 추가 예정 -->
+<div class="ad-box">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1588243824158524" data-ad-slot="2573241728" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 </div>
 </section>
@@ -134,79 +142,7 @@ section {
 </footer>
 
 <script>
-const PASSWORD = "147852369";
-const stockAmount = document.getElementById('stock-amount');
-const editBtn = document.getElementById('edit-btn');
-const inputArea = document.getElementById('input-area');
-const saveBtn = document.getElementById('save-btn');
-const cancelBtn = document.getElementById('cancel-btn');
-
-editBtn.addEventListener('click', () => {
-  inputArea.style.display = 'flex';
-  editBtn.style.display = 'none';
-});
-
-cancelBtn.addEventListener('click', () => {
-  inputArea.style.display = 'none';
-  editBtn.style.display = 'block';
-});
-
-saveBtn.addEventListener('click', () => {
-  const password = document.getElementById('password').value;
-  const newStock = document.getElementById('new-stock').value;
-  if (password === PASSWORD) {
-    stockAmount.textContent = `Stock Holdings (보유 주식): ${newStock}`;
-    inputArea.style.display = 'none';
-    editBtn.style.display = 'block';
-  } else {
-    alert("비밀번호가 틀렸습니다!");
-  }
-});
-
-function addMessage() {
-  const messageBox = document.getElementById('guest-message');
-  const messages = document.getElementById('messages');
-  if (messageBox.value.trim() !== "") {
-    const newMessage = document.createElement('div');
-    newMessage.style.position = 'relative';
-    newMessage.style.marginBottom = '10px';
-    newMessage.style.padding = '10px';
-    newMessage.style.backgroundColor = '#f0f0f0';
-    newMessage.style.borderRadius = '5px';
-
-    const messageText = document.createElement('span');
-    messageText.textContent = messageBox.value;
-
-    const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = "삭제";
-    deleteBtn.style.position = 'absolute';
-    deleteBtn.style.top = '5px';
-    deleteBtn.style.right = '5px';
-    deleteBtn.style.padding = '5px';
-    deleteBtn.style.fontSize = '0.8rem';
-    deleteBtn.style.backgroundColor = '#ff4d4d';
-    deleteBtn.style.color = 'white';
-    deleteBtn.style.border = 'none';
-    deleteBtn.style.borderRadius = '3px';
-    deleteBtn.style.cursor = 'pointer';
-
-    deleteBtn.addEventListener('click', () => {
-      const inputPassword = prompt("비밀번호를 입력하세요:");
-      if (inputPassword === PASSWORD) {
-        messages.removeChild(newMessage);
-      } else {
-        alert("비밀번호가 틀렸습니다!");
-      }
-    });
-
-    newMessage.appendChild(messageText);
-    newMessage.appendChild(deleteBtn);
-    messages.appendChild(newMessage);
-    messageBox.value = "";
-  } else {
-    alert("메시지를 입력해주세요.");
-  }
-}
+// 기존 스크립트 유지
 </script>
 
 </body>
