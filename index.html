@@ -18,7 +18,6 @@ body {
     background: url('assets/pexels-souvenirpixels-417074.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #000;
-    text-shadow: none;
 }
 header, footer, section {
     background: rgba(255, 255, 255, 0.85);
@@ -43,16 +42,6 @@ nav a {
     color: #0070ba;
     font-weight: bold;
     font-size: 1.1em;
-    position: relative;
-}
-nav a::after {
-    content: '|';
-    position: absolute;
-    right: -10px;
-    color: #999;
-}
-nav a:last-child::after {
-    content: '';
 }
 nav a:hover {
     text-decoration: underline;
@@ -86,17 +75,16 @@ nav a:hover {
         min-width: unset;
     }
 }
-#donate-button {
+#donate-button, button {
     background-color: #77dd77;
     border: none;
-    width: 100%;
-    padding: 18px 24px;
+    padding: 12px 24px;
     border-radius: 8px;
-    font-size: 1.2em;
+    font-size: 1.1em;
     color: white;
     cursor: pointer;
 }
-#donate-button:hover {
+#donate-button:hover, button:hover {
     background-color: #66cc66;
 }
 input[type="password"], input[type="text"] {
@@ -104,18 +92,6 @@ input[type="password"], input[type="text"] {
     margin: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
-}
-button {
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    border: none;
-    background-color: #0070ba;
-    color: white;
-    cursor: pointer;
-}
-button:hover {
-    background-color: #005b99;
 }
 </style>
 </head>
@@ -137,47 +113,120 @@ button:hover {
 </nav>
 
 <section id="home">
-<h2>Home</h2>
-<p>Welcome to "For Me, For You" – Changing the World through Capital.<br>("For Me, For You"에 오신 것을 환영합니다 – 자본으로 세상을 바꿉니다.)</p>
+<h2>Our Promise for the Environment<br>(환경을 위한 우리의 약속)</h2>
+<p>We are taking action to influence large corporations and drive eco-friendly policies.<br>(대기업에 영향력을 행사하여 친환경 정책을 이끌어내기 위해 움직이고 있습니다.)</p>
+<p>We welcome your active participation!<br>(여러분의 적극적인 참여를 환영합니다!)</p>
 </section>
 
 <section id="stock">
 <h2>Stock Holdings<br>(보유 주식)</h2>
-<div id="stock-list">
-  <p id="stock1">보유 주식 1: 0주</p>
-  <p id="stock2">보유 주식 2: 0주</p>
-  <p id="stock3">보유 주식 3: 0주</p>
-</div>
+<div id="stock-amount">보유 주식: 0주</div>
+<button id="edit-btn">수정</button>
+<div id="input-area" style="display:none;">
 <input type="password" id="password" placeholder="비밀번호 입력">
-<input type="text" id="new-stock1" placeholder="보유 주식 1 입력">
-<input type="text" id="new-stock2" placeholder="보유 주식 2 입력">
-<input type="text" id="new-stock3" placeholder="보유 주식 3 입력">
-<button onclick="saveStock()">저장</button>
+<input type="text" id="new-stock" placeholder="새 보유량 입력">
+<button id="save-btn">저장</button>
+<button id="cancel-btn">취소</button>
+</div>
+</section>
+
+<section id="about">
+<h2>About Us<br>(회사 소개)</h2>
+<p>"For Me, For You" was established to tackle the pressing issue of waste, especially plastic pollution.<br>(For Me, For You는 쓰레기 문제, 특히 플라스틱 오염에 대응하기 위해 설립되었습니다.)</p>
+<p>We aim to leverage shareholder rights to lead companies towards eco-friendly transformations.<br>(주주권을 행사하여 기업의 친환경 전환을 이끌어냅니다.)</p>
+</section>
+
+<section id="donate">
+<h2>Support Us<br>(후원하기)</h2>
+<div id="donate-options" style="display: flex; justify-content: center; gap: 1em; flex-wrap: wrap;">
+<div style="flex: 1; min-width: 250px; max-width: 300px; height: 100px; background-color: #77dd77; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+<form action="https://www.paypal.com/donate" method="post" target="_blank">
+<input type="hidden" name="business" value="ho298311@gmail.com" />
+<input type="hidden" name="currency_code" value="USD" />
+<input type="submit" id="donate-button" value="Donate with PayPal" />
+</form>
+</div>
+<div style="flex: 1; min-width: 250px; max-width: 300px; height: 100px; background-color: #77dd77; color: white; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+7002-2115-8976<br>토스뱅크<br>(for Korea account)
+</div>
+</div>
+</section>
+
+<section id="news-highlights">
+<h2>Plastic Recycling Crisis: What You Should Know</h2>
+<div style="background-color: #eef7f1; padding: 1em; border-radius: 10px; margin-top: 1em; text-align: left;">
+<h3>1. Chemicals Concern Overhaul Urgently Needed</h3>
+<p><strong>Source:</strong> Reuters<br>Only 9% of plastic ever produced has been recycled; systemic reforms are needed.</p>
+<h3>2. Recycling Plastic is Practically Impossible</h3>
+<p><strong>Source:</strong> NPR<br>Only about 5% of US plastic waste is recycled. Recycling alone is not a solution.</p>
+<h3>3. Plastic Producers Misled Consumers</h3>
+<p><strong>Source:</strong> The Guardian<br>Producers knew recycling was not sustainable but still promoted it to consumers.</p>
+</div>
+</section>
+
+<section id="plastic-reduction-tips">
+<h2>5 Easy Ways to Reduce Plastic Use</h2>
+<div style="background-color: #eef7f1; padding: 1em; border-radius: 10px; margin-top: 1em; text-align: left;">
+<ul>
+<li>Use reusable shopping bags.</li>
+<li>Carry a tumbler or personal cup.</li>
+<li>Choose products with minimal packaging.</li>
+<li>Use reusable utensils and straws.</li>
+<li>Recycle properly by cleaning plastics.</li>
+</ul>
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact Us<br>(문의하기)</h2>
+<p>Email: <a href="mailto:ho298311@gmail.com">ho298311@gmail.com</a></p>
+</section>
+
+<footer>
+<p>Copyright © 2025 For Me, For You</p>
+</footer>
+
 <script>
-function saveStock() {
-    const password = document.getElementById('password').value;
+const editBtn = document.getElementById('edit-btn');
+const saveBtn = document.getElementById('save-btn');
+const cancelBtn = document.getElementById('cancel-btn');
+const inputArea = document.getElementById('input-area');
+const stockAmount = document.getElementById('stock-amount');
+const passwordInput = document.getElementById('password');
+const newStockInput = document.getElementById('new-stock');
+
+editBtn.addEventListener('click', () => {
+    inputArea.style.display = 'block';
+});
+
+saveBtn.addEventListener('click', () => {
+    const password = passwordInput.value;
+    const newStock = newStockInput.value;
+
     if (password === '147852369') {
-        const stock1 = document.getElementById('new-stock1').value;
-        const stock2 = document.getElementById('new-stock2').value;
-        const stock3 = document.getElementById('new-stock3').value;
-
-        document.getElementById('stock1').innerText = `보유 주식 1: ${stock1}주`;
-        document.getElementById('stock2').innerText = `보유 주식 2: ${stock2}주`;
-        document.getElementById('stock3').innerText = `보유 주식 3: ${stock3}주`;
-
-        localStorage.setItem('stock1', stock1);
-        localStorage.setItem('stock2', stock2);
-        localStorage.setItem('stock3', stock3);
-        alert('저장되었습니다.');
+        stockAmount.innerText = `보유 주식: ${newStock}주`;
+        localStorage.setItem('stockAmount', newStock);
+        inputArea.style.display = 'none';
+        passwordInput.value = '';
+        newStockInput.value = '';
     } else {
         alert('비밀번호가 틀렸습니다.');
     }
-}
+});
+
+cancelBtn.addEventListener('click', () => {
+    inputArea.style.display = 'none';
+    passwordInput.value = '';
+    newStockInput.value = '';
+});
 
 window.onload = function() {
-    if (localStorage.getItem('stock1')) document.getElementById('stock1').innerText = `보유 주식 1: ${localStorage.getItem('stock1')}주`;
-    if (localStorage.getItem('stock2')) document.getElementById('stock2').innerText = `보유 주식 2: ${localStorage.getItem('stock2')}주`;
-    if (localStorage.getItem('stock3')) document.getElementById('stock3').innerText = `보유 주식 3: ${localStorage.getItem('stock3')}주`;
+    const savedStock = localStorage.getItem('stockAmount');
+    if (savedStock) {
+        stockAmount.innerText = `보유 주식: ${savedStock}주`;
+    }
 }
 </script>
-</section>
+
+</body>
+</html>
