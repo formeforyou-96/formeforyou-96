@@ -46,6 +46,14 @@ nav a {
   color: #333;
   font-weight: bold;
 }
+
+#home, #about, #donate, #contact {
+  text-align: center;
+}
+
+#input-area {
+  margin-top: 10px;
+}
 </style>
 
 </head>
@@ -88,11 +96,11 @@ nav a {
 <div id="input-area" style="display:none;">
 <input type="password" id="password" placeholder="Enter password">
 <input type="text" id="company1" placeholder="Company 1 Name">
-<input type="text" id="shares1" placeholder="Number of Shares 1">
+<input type="number" id="shares1" placeholder="Number of Shares 1">
 <input type="text" id="company2" placeholder="Company 2 Name">
-<input type="text" id="shares2" placeholder="Number of Shares 2">
+<input type="number" id="shares2" placeholder="Number of Shares 2">
 <input type="text" id="company3" placeholder="Company 3 Name">
-<input type="text" id="shares3" placeholder="Number of Shares 3">
+<input type="number" id="shares3" placeholder="Number of Shares 3">
 <button id="save-btn">Save</button>
 <button id="cancel-btn">Cancel</button>
 </div>
@@ -155,7 +163,33 @@ nav a {
 </footer>
 
 <script>
-// 주식 정보 저장 기능 등 추후 구현 가능
+const editBtn = document.getElementById('edit-btn');
+const saveBtn = document.getElementById('save-btn');
+const cancelBtn = document.getElementById('cancel-btn');
+const inputArea = document.getElementById('input-area');
+const stockList = document.getElementById('stock-list');
+
+editBtn.addEventListener('click', () => {
+  inputArea.style.display = 'block';
+});
+
+cancelBtn.addEventListener('click', () => {
+  inputArea.style.display = 'none';
+});
+
+saveBtn.addEventListener('click', () => {
+  const password = document.getElementById('password').value;
+  if (password !== '1234') {
+    alert('Incorrect password!');
+    return;
+  }
+
+  document.getElementById('stock1').innerText = `${document.getElementById('company1').value}: ${document.getElementById('shares1').value} shares`;
+  document.getElementById('stock2').innerText = `${document.getElementById('company2').value}: ${document.getElementById('shares2').value} shares`;
+  document.getElementById('stock3').innerText = `${document.getElementById('company3').value}: ${document.getElementById('shares3').value} shares`;
+
+  inputArea.style.display = 'none';
+});
 </script>
 
 </body>
