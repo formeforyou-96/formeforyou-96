@@ -42,6 +42,16 @@ nav a {
     color: #0070ba;
     font-weight: bold;
     font-size: 1.1em;
+    position: relative;
+}
+nav a::after {
+    content: '|';
+    position: absolute;
+    right: -10px;
+    color: #999;
+}
+nav a:last-child::after {
+    content: '';
 }
 nav a:hover {
     text-decoration: underline;
@@ -120,13 +130,22 @@ input[type="password"], input[type="text"] {
 
 <section id="stock">
 <h2>Stock Holdings<br>(보유 주식)</h2>
-<div id="stock-amount">보유 주식: 0주</div>
-<button id="edit-btn">수정</button>
+<div id="stock-list">
+    <p id="stock1">Company 1: 0 shares</p>
+    <p id="stock2">Company 2: 0 shares</p>
+    <p id="stock3">Company 3: 0 shares</p>
+</div>
+<button id="edit-btn">Edit Stocks</button>
 <div id="input-area" style="display:none;">
-<input type="password" id="password" placeholder="비밀번호 입력">
-<input type="text" id="new-stock" placeholder="새 보유량 입력">
-<button id="save-btn">저장</button>
-<button id="cancel-btn">취소</button>
+    <input type="password" id="password" placeholder="Enter password">
+    <input type="text" id="company1" placeholder="Company 1 Name">
+    <input type="text" id="shares1" placeholder="Number of Shares 1">
+    <input type="text" id="company2" placeholder="Company 2 Name">
+    <input type="text" id="shares2" placeholder="Number of Shares 2">
+    <input type="text" id="company3" placeholder="Company 3 Name">
+    <input type="text" id="shares3" placeholder="Number of Shares 3">
+    <button id="save-btn">Save</button>
+    <button id="cancel-btn">Cancel</button>
 </div>
 </section>
 
@@ -153,7 +172,7 @@ input[type="password"], input[type="text"] {
 </section>
 
 <section id="news-highlights">
-<h2>Plastic Recycling Crisis: What You Should Know</h2>
+<h2>Plastic Recycling Crisis: What You Should Know<br>(플라스틱 재활용 위기: 꼭 알아야 할 사실)</h2>
 <div style="background-color: #eef7f1; padding: 1em; border-radius: 10px; margin-top: 1em; text-align: left;">
 <h3>1. Chemicals Concern Overhaul Urgently Needed</h3>
 <p><strong>Source:</strong> Reuters<br>Only 9% of plastic ever produced has been recycled; systemic reforms are needed.</p>
@@ -165,14 +184,14 @@ input[type="password"], input[type="text"] {
 </section>
 
 <section id="plastic-reduction-tips">
-<h2>5 Easy Ways to Reduce Plastic Use</h2>
+<h2>5 Easy Ways to Reduce Plastic Use<br>(일상생활에서 플라스틱 사용을 줄이는 5가지 방법)</h2>
 <div style="background-color: #eef7f1; padding: 1em; border-radius: 10px; margin-top: 1em; text-align: left;">
 <ul>
-<li>Use reusable shopping bags.</li>
-<li>Carry a tumbler or personal cup.</li>
-<li>Choose products with minimal packaging.</li>
-<li>Use reusable utensils and straws.</li>
-<li>Recycle properly by cleaning plastics.</li>
+<li>Use reusable shopping bags. (재사용 가능한 장바구니 사용하기)</li>
+<li>Carry a tumbler or personal cup. (텀블러나 개인 컵 사용하기)</li>
+<li>Choose products with minimal packaging. (포장이 적은 제품 선택하기)</li>
+<li>Use reusable utensils and straws. (재사용 가능한 식기와 빨대 사용하기)</li>
+<li>Recycle properly by cleaning plastics. (플라스틱을 깨끗이 세척 후 분리배출하기)</li>
 </ul>
 </div>
 </section>
@@ -191,24 +210,34 @@ const editBtn = document.getElementById('edit-btn');
 const saveBtn = document.getElementById('save-btn');
 const cancelBtn = document.getElementById('cancel-btn');
 const inputArea = document.getElementById('input-area');
-const stockAmount = document.getElementById('stock-amount');
-const passwordInput = document.getElementById('password');
-const newStockInput = document.getElementById('new-stock');
+const stockList = document.getElementById('stock-list');
 
 editBtn.addEventListener('click', () => {
     inputArea.style.display = 'block';
 });
 
 saveBtn.addEventListener('click', () => {
-    const password = passwordInput.value;
-    const newStock = newStockInput.value;
-
+    const password = document.getElementById('password').value;
     if (password === '147852369') {
-        stockAmount.innerText = `보유 주식: ${newStock}주`;
-        localStorage.setItem('stockAmount', newStock);
+        const company1 = document.getElementById('company1').value;
+        const shares1 = document.getElementById('shares1').value;
+        const company2 = document.getElementById('company2').value;
+        const shares2 = document.getElementById('shares2').value;
+        const company3 = document.getElementById('company3').value;
+        const shares3 = document.getElementById('shares3').value;
+
+        document.getElementById('stock1').innerText = `${company1}: ${shares1} shares`;
+        document.getElementById('stock2').innerText = `${company2}: ${shares2} shares`;
+        document.getElementById('stock3').innerText = `${company3}: ${shares3} shares`;
+
+        localStorage.setItem('company1', company1);
+        localStorage.setItem('shares1', shares1);
+        localStorage.setItem('company2', company2);
+        localStorage.setItem('shares2', shares2);
+        localStorage.setItem('company3', company3);
+        localStorage.setItem('shares3', shares3);
+
         inputArea.style.display = 'none';
-        passwordInput.value = '';
-        newStockInput.value = '';
     } else {
         alert('비밀번호가 틀렸습니다.');
     }
@@ -216,15 +245,12 @@ saveBtn.addEventListener('click', () => {
 
 cancelBtn.addEventListener('click', () => {
     inputArea.style.display = 'none';
-    passwordInput.value = '';
-    newStockInput.value = '';
 });
 
 window.onload = function() {
-    const savedStock = localStorage.getItem('stockAmount');
-    if (savedStock) {
-        stockAmount.innerText = `보유 주식: ${savedStock}주`;
-    }
+    if (localStorage.getItem('company1')) document.getElementById('stock1').innerText = `${localStorage.getItem('company1')}: ${localStorage.getItem('shares1')} shares`;
+    if (localStorage.getItem('company2')) document.getElementById('stock2').innerText = `${localStorage.getItem('company2')}: ${localStorage.getItem('shares2')} shares`;
+    if (localStorage.getItem('company3')) document.getElementById('stock3').innerText = `${localStorage.getItem('company3')}: ${localStorage.getItem('shares3')} shares`;
 }
 </script>
 
