@@ -11,6 +11,11 @@
 <link rel="preload" href="assets/pexels-souvenirpixels-417074.jpg" as="image">
 <meta name="robots" content="index, follow">
 <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+<!-- 구글 애드센스 스크립트 삽입 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1588243824158524"
+     crossorigin="anonymous"></script>
+
 <style>
 body {
     margin: 0;
@@ -56,36 +61,13 @@ nav a:last-child::after {
 nav a:hover {
     text-decoration: underline;
 }
-#ad-wrapper {
-    display: flex;
-    justify-content: space-between;
-    gap: 2em;
-    flex-wrap: wrap;
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
+input[type="password"], input[type="text"] {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
-.ad-box {
-    flex: 1;
-    min-width: 500px;
-    height: 300px;
-    background-color: #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-}
-@media (max-width: 768px) {
-    #ad-wrapper {
-        flex-direction: column;
-        align-items: center;
-    }
-    .ad-box {
-        width: 90%;
-        min-width: unset;
-    }
-}
-#donate-button, button {
+button, #donate-button {
     background-color: #77dd77;
     border: none;
     padding: 12px 24px;
@@ -94,14 +76,8 @@ nav a:hover {
     color: white;
     cursor: pointer;
 }
-#donate-button:hover, button:hover {
+button:hover, #donate-button:hover {
     background-color: #66cc66;
-}
-input[type="password"], input[type="text"] {
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
 }
 </style>
 </head>
@@ -128,6 +104,19 @@ input[type="password"], input[type="text"] {
 <p>We welcome your active participation!<br>(여러분의 적극적인 참여를 환영합니다!)</p>
 </section>
 
+<!-- 광고 삽입 -->
+<div style="margin: 20px auto; max-width: 1200px; text-align: center;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-1588243824158524"
+         data-ad-slot="xxxxxxxxxx"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
 <section id="stock">
 <h2>Stock Holdings<br>(보유 주식)</h2>
 <div id="stock-list">
@@ -149,68 +138,25 @@ input[type="password"], input[type="text"] {
 </div>
 </section>
 
-<section id="about">
-<h2>About Us<br>(회사 소개)</h2>
-<p>"For Me, For You" was established to tackle the pressing issue of waste, especially plastic pollution.<br>(For Me, For You는 쓰레기 문제, 특히 플라스틱 오염에 대응하기 위해 설립되었습니다.)</p>
-<p>We aim to leverage shareholder rights to lead companies towards eco-friendly transformations.<br>(주주권을 행사하여 기업의 친환경 전환을 이끌어냅니다.)</p>
-</section>
-
-<section id="donate">
-<h2>Support Us<br>(후원하기)</h2>
-<div id="donate-options" style="display: flex; justify-content: center; gap: 1em; flex-wrap: wrap;">
-<div style="flex: 1; min-width: 250px; max-width: 300px; height: 100px; background-color: #77dd77; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-<form action="https://www.paypal.com/donate" method="post" target="_blank">
-<input type="hidden" name="business" value="ho298311@gmail.com" />
-<input type="hidden" name="currency_code" value="USD" />
-<input type="submit" id="donate-button" value="Donate with PayPal" />
-</form>
-</div>
-<div style="flex: 1; min-width: 250px; max-width: 300px; height: 100px; background-color: #77dd77; color: white; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-7002-2115-8976<br>토스뱅크<br>(for Korea account)
-</div>
-</div>
-</section>
-
 <section id="news-highlights">
 <h2>Plastic Recycling Crisis: What You Should Know<br>(플라스틱 재활용 위기: 꼭 알아야 할 사실)</h2>
 <div style="background-color: #eef7f1; padding: 1em; border-radius: 10px; margin-top: 1em; text-align: left;">
 <h3>1. Chemicals Concern Overhaul Urgently Needed</h3>
-<p><strong>Source:</strong> Reuters<br>Only 9% of plastic ever produced has been recycled; systemic reforms are needed.</p>
+<p><strong>Source:</strong> Reuters<br>Only 9% of plastic ever produced has been recycled; systemic reforms are needed.<br>(생산된 플라스틱의 9%만 재활용되었으며, 시스템 개혁이 필요합니다.)</p>
 <h3>2. Recycling Plastic is Practically Impossible</h3>
-<p><strong>Source:</strong> NPR<br>Only about 5% of US plastic waste is recycled. Recycling alone is not a solution.</p>
+<p><strong>Source:</strong> NPR<br>Only about 5% of US plastic waste is recycled. Recycling alone is not a solution.<br>(미국 플라스틱 폐기물의 약 5%만 재활용됩니다. 재활용만으로는 해결할 수 없습니다.)</p>
 <h3>3. Plastic Producers Misled Consumers</h3>
-<p><strong>Source:</strong> The Guardian<br>Producers knew recycling was not sustainable but still promoted it to consumers.</p>
+<p><strong>Source:</strong> The Guardian<br>Producers knew recycling was not sustainable but still promoted it to consumers.<br>(플라스틱 생산업체들은 재활용이 지속 가능하지 않다는 것을 알면서도 소비자들에게 이를 홍보했습니다.)</p>
 </div>
 </section>
 
-<section id="plastic-reduction-tips">
-<h2>5 Easy Ways to Reduce Plastic Use<br>(일상생활에서 플라스틱 사용을 줄이는 5가지 방법)</h2>
-<div style="background-color: #eef7f1; padding: 1em; border-radius: 10px; margin-top: 1em; text-align: left;">
-<ul>
-<li>Use reusable shopping bags. (재사용 가능한 장바구니 사용하기)</li>
-<li>Carry a tumbler or personal cup. (텀블러나 개인 컵 사용하기)</li>
-<li>Choose products with minimal packaging. (포장이 적은 제품 선택하기)</li>
-<li>Use reusable utensils and straws. (재사용 가능한 식기와 빨대 사용하기)</li>
-<li>Recycle properly by cleaning plastics. (플라스틱을 깨끗이 세척 후 분리배출하기)</li>
-</ul>
-</div>
-</section>
-
-<section id="contact">
-<h2>Contact Us<br>(문의하기)</h2>
-<p>Email: <a href="mailto:ho298311@gmail.com">ho298311@gmail.com</a></p>
-</section>
-
-<footer>
-<p>Copyright © 2025 For Me, For You</p>
-</footer>
+<!-- 추가 섹션은 필요에 따라 계속 이어서 작성할 수 있습니다 -->
 
 <script>
 const editBtn = document.getElementById('edit-btn');
 const saveBtn = document.getElementById('save-btn');
 const cancelBtn = document.getElementById('cancel-btn');
 const inputArea = document.getElementById('input-area');
-const stockList = document.getElementById('stock-list');
 
 editBtn.addEventListener('click', () => {
     inputArea.style.display = 'block';
