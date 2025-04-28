@@ -99,6 +99,24 @@ nav a:hover {
 #donate-button:hover {
     background-color: #66cc66;
 }
+input[type="password"], input[type="text"] {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #0070ba;
+    color: white;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #005b99;
+}
 </style>
 </head>
 <body>
@@ -126,87 +144,40 @@ nav a:hover {
 <section id="stock">
 <h2>Stock Holdings<br>(보유 주식)</h2>
 <div id="stock-list">
-  <p>보유 주식 1: 0주</p>
-  <p>보유 주식 2: 0주</p>
-  <p>보유 주식 3: 0주</p>
+  <p id="stock1">보유 주식 1: 0주</p>
+  <p id="stock2">보유 주식 2: 0주</p>
+  <p id="stock3">보유 주식 3: 0주</p>
 </div>
+<input type="password" id="password" placeholder="비밀번호 입력">
+<input type="text" id="new-stock1" placeholder="보유 주식 1 입력">
+<input type="text" id="new-stock2" placeholder="보유 주식 2 입력">
+<input type="text" id="new-stock3" placeholder="보유 주식 3 입력">
+<button onclick="saveStock()">저장</button>
+<script>
+function saveStock() {
+    const password = document.getElementById('password').value;
+    if (password === '147852369') {
+        const stock1 = document.getElementById('new-stock1').value;
+        const stock2 = document.getElementById('new-stock2').value;
+        const stock3 = document.getElementById('new-stock3').value;
+
+        document.getElementById('stock1').innerText = `보유 주식 1: ${stock1}주`;
+        document.getElementById('stock2').innerText = `보유 주식 2: ${stock2}주`;
+        document.getElementById('stock3').innerText = `보유 주식 3: ${stock3}주`;
+
+        localStorage.setItem('stock1', stock1);
+        localStorage.setItem('stock2', stock2);
+        localStorage.setItem('stock3', stock3);
+        alert('저장되었습니다.');
+    } else {
+        alert('비밀번호가 틀렸습니다.');
+    }
+}
+
+window.onload = function() {
+    if (localStorage.getItem('stock1')) document.getElementById('stock1').innerText = `보유 주식 1: ${localStorage.getItem('stock1')}주`;
+    if (localStorage.getItem('stock2')) document.getElementById('stock2').innerText = `보유 주식 2: ${localStorage.getItem('stock2')}주`;
+    if (localStorage.getItem('stock3')) document.getElementById('stock3').innerText = `보유 주식 3: ${localStorage.getItem('stock3')}주`;
+}
+</script>
 </section>
-
-<section id="about">
-<h2>About Us<br>(회사 소개)</h2>
-<p>"For Me, For You"는 플라스틱 오염과 같은 심각한 환경 문제를 해결하기 위해 설립되었습니다. 주주권을 행사하여 친환경 기업으로의 전환을 이끌어갑니다.</p>
-</section>
-
-<section id="donate">
-<h2>Support Us<br>(후원하기)</h2>
-<div style="display: flex; justify-content: center; gap: 1em; flex-wrap: wrap;">
-<div style="flex: 1; min-width: 250px; max-width: 300px;">
-<form action="https://www.paypal.com/donate" method="post" target="_blank">
-<input type="hidden" name="business" value="ho298311@gmail.com">
-<input type="hidden" name="currency_code" value="USD">
-<input type="submit" id="donate-button" value="Donate with PayPal">
-</form>
-</div>
-<div style="flex: 1; min-width: 250px; max-width: 300px; background-color: #77dd77; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white;">
-<p>7002-2115-8976<br>토스뱅크<br>(for Korea account)</p>
-</div>
-</div>
-</section>
-
-<section id="news-highlights">
-<h2>Plastic Recycling Crisis: What You Should Know</h2>
-<h3>(플라스틱 재활용 위기: 우리가 알아야 할 것)</h3>
-<div style="background-color: #eef7f1; padding: 1em; border-radius: 10px; margin-top: 1em; text-align: left;">
-<h3>1. Chemicals Concern Overhaul Urgently Needed to Fix Failed Plastic Recycling Systems</h3>
-<h4>(플라스틱 재활용 실패를 해결하기 위한 화학물질 규제 개혁이 시급)</h4>
-<p><strong>Source:</strong> Reuters<br>
-<strong>Summary:</strong> Only 9% of all plastic ever produced has been recycled, with most ending up in landfills or being incinerated. Systemic reforms and stricter regulations are urgently needed.<br>
-(전체 플라스틱 생산량 중 9%만 재활용되고 있으며, 나머지는 매립되거나 소각되고 있습니다. 전반적인 시스템 개혁과 강력한 규제가 시급합니다.)
-</p>
-
-<h3>2. Recycling Plastic is Practically Impossible — and the Problem is Getting Worse</h3>
-<h4>(플라스틱 재활용은 사실상 불가능하며 문제는 악화되고 있음)</h4>
-<p><strong>Source:</strong> NPR<br>
-<strong>Summary:</strong> Greenpeace reports that only about 5% of plastic waste in the United States is recycled. Most plastics are landfilled or burned.<br>
-(미국의 플라스틱 폐기물 중 5%만이 실제로 재활용되고 있으며, 대부분은 매립되거나 소각되고 있다는 그린피스의 보고입니다.)
-</p>
-
-<h3>3. Plastic Producers Knew Recycling Was Not Viable but Promoted It Anyway</h3>
-<h4>(플라스틱 제조업체들은 재활용이 불가능함을 알면서도 홍보함)</h4>
-<p><strong>Source:</strong> The Guardian<br>
-<strong>Summary:</strong> Plastic producers knew recycling would not be a sustainable solution, but they misled the public for decades.<br>
-(플라스틱 제조업체들은 재활용이 지속 가능한 해결책이 아니라는 것을 알면서도 대중에게 오랫동안 잘못된 인식을 심어주었습니다.)
-</p>
-</div>
-</section>
-
-<section id="plastic-reduction-tips">
-<h2>5 Easy Ways to Reduce Plastic Use in Daily Life</h2>
-<h3>(일상 속 플라스틱 줄이기 쉬운 5가지 방법)</h3>
-<div style="background-color: #eef7f1; padding: 1em; border-radius: 10px; margin-top: 1em; text-align: left;">
-<ul>
-<li><strong>Use Reusable Shopping Bags:</strong> Bring your own reusable bags instead of disposable plastic ones.<br>
-(장 볼 때 일회용 비닐봉지 대신 재사용 가능한 장바구니를 사용하세요.)</li>
-<li><strong>Carry a Tumbler or Personal Cup:</strong> Bring your own cup to cafes.<br>
-(카페에서 음료를 주문할 때 개인 컵을 사용하세요.)</li>
-<li><strong>Choose Products with Minimal Packaging:</strong> Select products with simple or recyclable packaging.<br>
-(포장이 간단하거나 재활용 가능한 제품을 선택하세요.)</li>
-<li><strong>Use Reusable Utensils and Items:</strong> Use stainless steel, silicone, or bamboo alternatives.<br>
-(스테인리스, 실리콘, 대나무 제품을 사용하여 일회용품을 줄이세요.)</li>
-<li><strong>Recycle Properly:</strong> Wash plastics before recycling.<br>
-(플라스틱을 재활용하기 전에 깨끗이 세척하세요.)</li>
-</ul>
-</div>
-</section>
-
-<section id="contact">
-<h2>Contact Us<br>(문의하기)</h2>
-<p>Email: <a href="mailto:ho298311@gmail.com">ho298311@gmail.com</a></p>
-</section>
-
-<footer>
-<p>Copyright © 2025 For Me, For You</p>
-</footer>
-
-</body>
-</html>
