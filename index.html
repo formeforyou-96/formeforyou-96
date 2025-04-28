@@ -22,22 +22,24 @@ body {
   background-attachment: fixed;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 section {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 40px 20px;
+  border-radius: 16px;
   margin: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 header, nav, footer {
   text-align: center;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
   margin: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 nav a {
@@ -45,6 +47,11 @@ nav a {
   text-decoration: none;
   color: #333;
   font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #2a8c82;
 }
 
 #home, #about, #donate, #contact {
@@ -53,6 +60,48 @@ nav a {
 
 #input-area {
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  background-color: #2a8c82;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #22665e;
+}
+
+input[type="text"], input[type="number"], input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  section, header, nav, footer {
+    margin: 10px;
+    padding: 20px 10px;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 5px 8px;
+  }
+
+  #donate-options {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>
 
@@ -65,12 +114,12 @@ nav a {
 </header>
 
 <nav>
-<a href="#home">Home</a> |
-<a href="#stock">Stock</a> |
-<a href="#about">About</a> |
-<a href="#donate">Donate</a> |
-<a href="#news-highlights">News</a> |
-<a href="#plastic-reduction-tips">Tips</a> |
+<a href="#home">Home</a>
+<a href="#stock">Stock</a>
+<a href="#about">About</a>
+<a href="#donate">Donate</a>
+<a href="#news-highlights">News</a>
+<a href="#plastic-reduction-tips">Tips</a>
 <a href="#contact">Contact</a>
 </nav>
 
@@ -167,10 +216,9 @@ const editBtn = document.getElementById('edit-btn');
 const saveBtn = document.getElementById('save-btn');
 const cancelBtn = document.getElementById('cancel-btn');
 const inputArea = document.getElementById('input-area');
-const stockList = document.getElementById('stock-list');
 
 editBtn.addEventListener('click', () => {
-  inputArea.style.display = 'block';
+  inputArea.style.display = 'flex';
 });
 
 cancelBtn.addEventListener('click', () => {
