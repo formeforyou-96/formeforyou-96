@@ -115,11 +115,19 @@ header, footer, section {
 
 <section id="donate">
 <h2>Support Us<br>(후원하기)</h2>
-<form action="https://www.paypal.com/donate" method="post" target="_blank">
-  <input type="hidden" name="business" value="ho298311@gmail.com" />
-  <input type="hidden" name="currency_code" value="USD" />
-  <input type="submit" id="donate-button" value="PayPal로 후원하기" />
-</form>
+<div id="donate-options" style="display: flex; justify-content: center; gap: 1em; flex-wrap: wrap;">
+  <form action="https://www.paypal.com/donate" method="post" target="_blank" style="flex: 1; min-width: 250px;">
+    <input type="hidden" name="business" value="ho298311@gmail.com" />
+    <input type="hidden" name="currency_code" value="USD" />
+    <input type="submit" id="donate-button" value="PayPal로 후원하기" />
+  </form>
+
+  <div style="flex: 1; min-width: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #0070ba; color: white; padding: 12px 24px; border-radius: 8px;">
+    <div style="font-size: 1.2em; margin-bottom: 0.5em;">한국 계좌로 후원하기</div>
+    <div style="font-size: 1em;">7002-2115-8976</div>
+    <div style="font-size: 1em;">토스뱅크</div>
+  </div>
+</div>
 </section>
 
 <section id="contact">
