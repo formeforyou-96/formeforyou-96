@@ -297,14 +297,17 @@ const saveBtn = document.getElementById('save-btn');
 const cancelBtn = document.getElementById('cancel-btn');
 const inputArea = document.getElementById('input-area');
 
+// ✅ 수정 버튼 클릭 시 입력창 열기
 editBtn.addEventListener('click', () => {
   inputArea.style.display = 'flex';
 });
 
+// ✅ 취소 버튼 클릭 시 입력창 닫기
 cancelBtn.addEventListener('click', () => {
   inputArea.style.display = 'none';
 });
 
+// ✅ 저장 버튼 클릭 시 동작
 saveBtn.addEventListener('click', () => {
   const password = document.getElementById('password').value;
   if (password !== '147852369') {
@@ -312,11 +315,36 @@ saveBtn.addEventListener('click', () => {
     return;
   }
 
-  document.getElementById('stock1').innerText = `${document.getElementById('company1').value}: ${document.getElementById('shares1').value} shares`;
-  document.getElementById('stock2').innerText = `${document.getElementById('company2').value}: ${document.getElementById('shares2').value} shares`;
-  document.getElementById('stock3').innerText = `${document.getElementById('company3').value}: ${document.getElementById('shares3').value} shares`;
+  const company1 = document.getElementById('company1').value;
+  const shares1 = document.getElementById('shares1').value;
+  const company2 = document.getElementById('company2').value;
+  const shares2 = document.getElementById('shares2').value;
+  const company3 = document.getElementById('company3').value;
+  const shares3 = document.getElementById('shares3').value;
+
+  // 화면 표시
+  document.getElementById('stock1').innerText = `${company1}: ${shares1} shares`;
+  document.getElementById('stock2').innerText = `${company2}: ${shares2} shares`;
+  document.getElementById('stock3').innerText = `${company3}: ${shares3} shares`;
+
+  // ✅ 브라우저에 저장
+  localStorage.setItem('stockData', JSON.stringify({
+    company1, shares1,
+    company2, shares2,
+    company3, shares3
+  }));
 
   inputArea.style.display = 'none';
+});
+
+// ✅ 페이지 로드할 때 저장된 데이터 불러오기
+window.addEventListener('load', () => {
+  const savedData = JSON.parse(localStorage.getItem('stockData'));
+  if (savedData) {
+    document.getElementById('stock1').innerText = `${savedData.company1}: ${savedData.shares1} shares`;
+    document.getElementById('stock2').innerText = `${savedData.company2}: ${savedData.shares2} shares`;
+    document.getElementById('stock3').innerText = `${savedData.company3}: ${savedData.shares3} shares`;
+  }
 });
 </script>
 </body>
